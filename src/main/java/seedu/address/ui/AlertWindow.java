@@ -1,5 +1,4 @@
 package seedu.address.ui;
-
 import java.util.logging.Logger;
 
 import javafx.fxml.FXML;
@@ -9,9 +8,10 @@ import seedu.address.commons.core.LogsCenter;
 
 
 public class AlertWindow extends UiPart<Stage> {
+    private static final String HEADER_MESSAGE = "ATTENTION! Below task(s) will due in one week from now:";
     private static final String FXML = "AlertWindow.fxml";
     private static final Logger logger = LogsCenter.getLogger(AlertWindow.class);
-    public static final String HEADER_MESSAGE = "ATTENTION! Below task(s) will due in one week from now:";
+
 
 
     @FXML
@@ -19,6 +19,22 @@ public class AlertWindow extends UiPart<Stage> {
 
     @FXML
     private Label alertHeaderMessage;
+
+    /**
+     * Creates a new AlertWindow.
+     */
+    public AlertWindow() {
+        this(new Stage());
+    }
+
+    /**
+     * Creates a new AlertWindow.
+     *
+     * @param root Stage to use as the root of the AlertWindow.
+     */
+    public AlertWindow(Stage root) {
+        super(FXML, root);
+    }
 
     /**
      * Shows the AlertWindow with the task reaching deadline soon.
@@ -32,22 +48,5 @@ public class AlertWindow extends UiPart<Stage> {
         getRoot().show();
         getRoot().centerOnScreen();
     }
-
-    /**
-     * Creates a new AlertWindow.
-     *
-     * @param root Stage to use as the root of the AlertWindow.
-     */
-    public AlertWindow(Stage root) {
-        super(FXML, root);
-    }
-
-    /**
-     * Creates a new AlertWindow.
-     */
-    public AlertWindow() {
-        this(new Stage());
-    }
-
 
 }
